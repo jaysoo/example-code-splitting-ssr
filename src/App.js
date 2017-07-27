@@ -60,7 +60,9 @@ const App = ({ className }) =>
             <Module match={match} loader={import('./modules/recur')} />}
         />
         <Route>
-          Not found
+          <div>
+            <h1>Not found</h1>
+          </div>
         </Route>
       </Switch>
     </Main>
