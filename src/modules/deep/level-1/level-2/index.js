@@ -16,7 +16,7 @@ const LevelTwo = ({ match }) =>
     <Route
       path={`${match.url}/level-3`}
       render={({ match }) =>
-        <Module {...this.props} match={match} from={import('./level-3')} />}
+        <Module {...this.props} match={match} loader={import('./level-3')} />}
     />
   </Container>
 

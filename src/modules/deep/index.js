@@ -22,7 +22,7 @@ const Deep = ({ match }) =>
     <Route
       path={`${match.url}/level-1`}
       render={({ match }) =>
-        <Module {...this.props} match={match} from={import('./level-1')} />}
+        <Module {...this.props} match={match} loader={import('./level-1')} />}
     />
   </Container>
 

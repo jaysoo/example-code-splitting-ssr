@@ -41,23 +41,26 @@ const App = ({ className }) =>
           exact
           path="/"
           render={({ match }) =>
-            <Module {...this.props} match={match} from={import('./modules/home')} />}
+            <Module {...this.props} match={match} loader={import('./modules/home')} />}
         />
         <Route
           path="/about"
           render={({ match }) =>
-            <Module {...this.props} match={match} from={import('./modules/about')} />}
+            <Module {...this.props} match={match} loader={import('./modules/about')} />}
         />
         <Route
           path="/deep"
           render={({ match }) =>
-            <Module {...this.props} match={match} from={import('./modules/deep')} />}
+            <Module {...this.props} match={match} loader={import('./modules/deep')} />}
         />
         <Route
           path="/recur"
           render={({ match }) =>
-            <Module {...this.props} match={match} from={import('./modules/recur')} />}
+            <Module {...this.props} match={match} loader={import('./modules/recur')} />}
         />
+        <Route>
+          Not found
+        </Route>
       </Switch>
     </Main>
   </Layout>

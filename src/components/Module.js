@@ -2,42 +2,47 @@
 import React, { Component } from 'react'
 import u from 'react-universal-component'
 
-function createResolvedRoutes() {
-  return u(props => props.from, {
-    loading: () => <div>Loading...</div>,
-    error: () => <div>Error!</div>,
-    onLoad: (loaded) => {
-      // Setup anything else from loaded module...
-      // e.g. redux reducers, etc.
-    }
-  })
-}
+/*
+ * This component's purpose is to resolve a lazily loaded component,
+ * as well as handle any extra initialization logic. e.g. setting up redux store.
+ */
 
 class Module extends Component {
   state = {
-    ResolvedRoutes: null
+    LazyRoute: null
   }
 
   componentWillMount() {
     this.setState({
-      ResolvedRoutes: createResolvedRoutes()
+      LazyRoute: createLazyRoute()
     })
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.from !== this.props.from) {
+    if (nextProps.loader !== this.props.loader) {
       this.setState({
-        ResolvedRoutes: createResolvedRoutes()
+        LazyRoute: createLazyRoute()
       })
     }
   }
 
   render() {
-    const { ResolvedRoutes } = this.state
-    return ResolvedRoutes
-      ? <ResolvedRoutes from={this.props.from} match={this.props.match} />
+    const { LazyRoute } = this.state
+    return LazyRoute
+      ? <LazyRoute loader={this.props.loader} match={this.props.match} />
       : null
   }
+}
+
+function createLazyRoute() {
+  return u(props => props.loader, {
+    loading: () => <div>Loading...</div>,
+    error: () => <div>Error!</div>,
+    onLoad: (loaded) => {
+      // Setup anything else from loaded module...
+      // e.g. redux store, etc.
+    }
+  })
 }
 
 export default Module
