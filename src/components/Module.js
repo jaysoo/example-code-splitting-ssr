@@ -7,8 +7,20 @@ import u from 'react-universal-component'
  * as well as handle any extra initialization logic. e.g. setting up redux store.
  */
 
+
+type IProps = {
+  loader: Promise<*>,
+  match: any
+}
+
+type IState = {
+  LazyRoute: ?ReactClass<any>
+}
+
 class Module extends Component {
-  state = {
+  props: IProps
+
+  state: IState = {
     LazyRoute: null
   }
 
@@ -18,7 +30,7 @@ class Module extends Component {
     })
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: IProps) {
     if (nextProps.loader !== this.props.loader) {
       this.setState({
         LazyRoute: createLazyRoute()
@@ -36,8 +48,8 @@ class Module extends Component {
 
 function createLazyRoute() {
   return u(props => props.loader, {
-    loading: () => <div>Loading...</div>,
-    error: () => <div>Error!</div>,
+    loading: <div>Loading...</div>,
+    error: <div>Error!</div>,
     onLoad: (loaded) => {
       // Setup anything else from loaded module...
       // e.g. redux store, etc.

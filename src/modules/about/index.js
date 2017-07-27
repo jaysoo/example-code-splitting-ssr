@@ -1,10 +1,11 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { Link, Route, Switch } from 'react-router-dom'
 import SectionA from './SectionA'
 import SectionB from './SectionB'
 
-const About = ({ match }) =>
+const About = ({ match }: { match: any }) =>
   <Container>
     <h1>About</h1>
     <p>This is the about section.</p>

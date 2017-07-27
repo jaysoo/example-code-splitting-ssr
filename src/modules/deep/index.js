@@ -1,9 +1,10 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { Link, Route } from 'react-router-dom'
 import { Module } from '../../components'
 
-const Deep = ({ match }) =>
+const Deep = ({ match }: { match: any }) =>
   <Container>
     <h1>Deep nesting example</h1>
     <p>
@@ -22,7 +23,7 @@ const Deep = ({ match }) =>
     <Route
       path={`${match.url}/level-1`}
       render={({ match }) =>
-        <Module {...this.props} match={match} loader={import('./level-1')} />}
+        <Module match={match} loader={import('./level-1')} />}
     />
   </Container>
 

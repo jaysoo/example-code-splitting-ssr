@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { Link, Route, Switch } from 'react-router-dom'
@@ -12,7 +13,7 @@ const OptionTwo = () =>
     You choose option <strong>two</strong>.
   </div>
 
-const Recur = ({ match }) =>
+const Recur = ({ match }: { match: any }) =>
   <Container>
     <p>
       Choose and option...

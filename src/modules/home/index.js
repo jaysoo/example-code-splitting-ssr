@@ -1,8 +1,9 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import screenshot from './screenshot.png'
 
-const Home = ({ match }) =>
+const Home = ({ match }: { match: any }) =>
   <Container>
     <h1>
       Home

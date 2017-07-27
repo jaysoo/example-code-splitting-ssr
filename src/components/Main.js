@@ -1,7 +1,8 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 
-const Main = ({ children }) =>
+const Main = ({ children }: { children?: React.Element<*> }) =>
   <Container>
     {children}
   </Container>

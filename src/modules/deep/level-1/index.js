@@ -1,9 +1,10 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { Link, Route } from 'react-router-dom'
 import { Module } from '../../../components'
 
-const LevelOne = ({ match }) =>
+const LevelOne = ({ match }: { match: any }) =>
   <Container>
     <h2>Welcome to level 1!</h2>
     <p>Go down further to
@@ -16,7 +17,7 @@ const LevelOne = ({ match }) =>
     <Route
       path={`${match.url}/level-2`}
       render={({ match }) =>
-        <Module {...this.props} match={match} loader={import('./level-2')} />}
+        <Module match={match} loader={import('./level-2')} />}
     />
   </Container>
 

@@ -1,3 +1,4 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink, Route, Switch } from 'react-router-dom'
@@ -41,22 +42,22 @@ const App = ({ className }) =>
           exact
           path="/"
           render={({ match }) =>
-            <Module {...this.props} match={match} loader={import('./modules/home')} />}
+            <Module match={match} loader={import('./modules/home')} />}
         />
         <Route
           path="/about"
           render={({ match }) =>
-            <Module {...this.props} match={match} loader={import('./modules/about')} />}
+            <Module match={match} loader={import('./modules/about')} />}
         />
         <Route
           path="/deep"
           render={({ match }) =>
-            <Module {...this.props} match={match} loader={import('./modules/deep')} />}
+            <Module match={match} loader={import('./modules/deep')} />}
         />
         <Route
           path="/recur"
           render={({ match }) =>
-            <Module {...this.props} match={match} loader={import('./modules/recur')} />}
+            <Module match={match} loader={import('./modules/recur')} />}
         />
         <Route>
           Not found

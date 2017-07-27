@@ -1,7 +1,8 @@
+// @flow
 import React from 'react'
 import styled from 'styled-components'
 
-const Sidebar = ({ children }) =>
+const Sidebar = ({ children }: { children?: React.Element<*> }) =>
   <Container>
     {children}
   </Container>
